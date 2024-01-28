@@ -14,7 +14,7 @@
     <name>projetFinal</name>
     <description>projetFinal</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -75,8 +75,6 @@
             <artifactId>webjars-locator</artifactId>
             <version>0.47</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
