@@ -21,7 +21,7 @@ public class Task {
     @NotEmpty(message = "Nom est requis")
     private String Name;
 
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @DateTimeFormat(pattern = "dd-mm-yyyy 'T' HH:mm")
     private LocalDate Date;
 
     private String Details;
