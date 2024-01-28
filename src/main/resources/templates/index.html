@@ -32,7 +32,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="task:${tasks}">
+                    <tr th:each="task:${task}">
                         <td th:text="${task.Name}"></td>
                         <td th:text="${task.Date}"></td>
                         <td th:text="${task.Details}"></td>
@@ -48,7 +48,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="my-5"><a href="/addtask" class="btn btn-info"><i class="fas fa-plus-square"></i> </a> </p>
+            <p class="my-5"><a href="/add-task" class="btn btn-info"><i class="fas fa-plus-square"></i> </a> </p>
         </div>
         <div class="col-md-1"></div>
     </div>

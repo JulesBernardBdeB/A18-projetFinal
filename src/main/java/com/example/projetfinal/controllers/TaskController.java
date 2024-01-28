@@ -30,22 +30,22 @@ public class TaskController {
     @GetMapping("/index")
     public String index(Model model){
        List<Task> tasksList = (List<Task>)taskService.getTasks();
-       model.addAttribute("tasks",tasksList.isEmpty()? Collections.EMPTY_LIST:tasksList);
+       model.addAttribute("task",tasksList.isEmpty()? Collections.EMPTY_LIST:tasksList);
        return "index";
     }
 
-    @GetMapping("/addtask")
+    @GetMapping("/add-task")
     public String displayAddTaskForm(Task task){
-        return "addtask";
+        return "add-task";
     }
 
-    @PostMapping("/addtask")
+    @PostMapping("/add-task")
     public String addTaskForm(@Valid Task task, BindingResult result, Model model){
         if(result.hasErrors()){
             return "add-task";
         }
         taskService.createTask(task);
-        model.addAttribute("tasks",taskService.getTasks());
+        model.addAttribute("task",taskService.getTasks());
         return "redirect:/index";
     }
 
@@ -62,14 +62,14 @@ public class TaskController {
             return "update-task";
         }
         taskService.updateTask(id,task);
-        model.addAttribute("tasks",taskService.getTasks());
+        model.addAttribute("task",taskService.getTasks());
         return "redirect:/index";
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteTask(@PathVariable ("id") Long id, Model model){
         taskService.deleteTask(id);
-        model.addAttribute("tasks",taskService.getTasks());
+        model.addAttribute("task",taskService.getTasks());
         return "redirect:/index";
     }
 }

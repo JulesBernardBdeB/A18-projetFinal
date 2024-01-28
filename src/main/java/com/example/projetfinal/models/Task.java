@@ -1,17 +1,16 @@
 package com.example.projetfinal.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.*;
-import java.time.LocalDate;
 
+import java.time.LocalDateTime;
 
 @Data
 @ToString
 @RequiredArgsConstructor
 @Entity
-@NoArgsConstructor
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +20,16 @@ public class Task {
     @NotEmpty(message = "Nom est requis")
     private String Name;
 
-    @DateTimeFormat(pattern = "dd-mm-yyyy 'T' HH:mm")
-    private LocalDate Date;
+    public LocalDateTime getDate() {
+        return Date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        Date = date;
+    }
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime Date;
 
     private String Details;
 
@@ -34,13 +41,7 @@ public class Task {
         Name = name;
     }
 
-    public LocalDate getDate() {
-        return Date;
-    }
 
-    public void setDate(LocalDate date) {
-        Date = date;
-    }
 
     public String getDetails() {
         return Details;
